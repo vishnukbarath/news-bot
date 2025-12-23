@@ -13,7 +13,9 @@ if (typeof global.crypto === 'undefined') {
   const pino = require('pino');
   const messageHandler = require('./handlers/messageHandler');
   const config = require('./config');
-  
+
+
+
   async function connectToWhatsApp() {
       const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');
   
@@ -43,7 +45,8 @@ if (typeof global.crypto === 'undefined') {
               return { conversation: 'hello' }
           }
       });
-  
+
+      
       // Handle connection updates
       sock.ev.on('connection.update', async (update) => {
           const { connection, lastDisconnect } = update;
